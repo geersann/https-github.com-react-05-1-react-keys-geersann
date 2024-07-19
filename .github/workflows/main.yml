@@ -1,0 +1,15 @@
+name: Tests Workflow
+
+on: [push]
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepare to tests
+        run: npm i
+      - name: Tests
+        run: |
+          bash -e ./src/__tests__/test.sh
